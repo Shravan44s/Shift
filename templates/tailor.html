@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailor Support</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/shiftbbg.png') }}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/tailor.css') }}" />
+</head>
+
+<body>
+    <h1 class="heading">Tailors</h1>
+    <div class="container">
+        <img src="{{ data }}" class="genimage" id="genimage" alt="Dress">
+        <div class="cards" id="cards">
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+<script >
+
+    tailorname = [
+        "Arjun Patel",
+        "Priya Gupta",
+        "Rahul Shah",
+        "Neha Desai",
+        "Vikram Sharma",
+        "Ananya Mehta",
+        "Karan Joshi",
+        "Ayesha Malhotra",
+        "Raj Singhania",
+        "Sneha Kapoor",
+        "Akash Jain",
+        "Deepika Chauhan",
+        "Vishal Reddy",
+        "Sakshi Yadav",
+        "Rohan Khanna",
+        "Divya Sharma",
+        "Amit Verma",
+        "Pooja Bajaj",
+        "Arun Singh",
+        "Nisha Gupta"
+    ];
+    shopname = [
+        "Elegant Fashions",
+        "Royal Stitches",
+        "Graceful Garments",
+        "Divine Designs",
+        "Fashion World",
+        "Ethnic Elegance",
+        "Trendy Tailors",
+        "Vogue Vests",
+        "Classy Creations",
+        "Heritage Tailors",
+        "Royal Robes",
+        "Elite Emporium",
+        "Trendsetters",
+        "Fashion Fiesta",
+        "Style Statements",
+        "Elegance Ensemble",
+        "Sartorial Splendor",
+        "Ethnic Essence",
+        "Classic Couture",
+        "Regal Raiments"
+    ];
+    address = [
+        "10, MG Road, Bangalore, Karnataka, India",
+        "25, Park Street, Kolkata, West Bengal, India",
+        "15, Commercial Street, Mumbai, Maharashtra, India",
+        "5, Church Road, Delhi, India",
+        "30, Brigade Road, Bangalore, Karnataka, India",
+        "20, College Street, Kolkata, West Bengal, India",
+        "35, Linking Road, Mumbai, Maharashtra, India",
+        "50, Connaught Place, Delhi, India",
+        "12, Commercial Street, Bangalore, Karnataka, India",
+        "8, Park Street, Kolkata, West Bengal, India",
+        "45, Marine Drive, Mumbai, Maharashtra, India",
+        "18, Janpath, Delhi, India",
+        "22, Brigade Road, Bangalore, Karnataka, India",
+        "5, College Street, Kolkata, West Bengal, India",
+        "40, Bandra-Kurla Complex, Mumbai, Maharashtra, India",
+        "60, Khan Market, Delhi, India",
+        "14, Commercial Street, Bangalore, Karnataka, India",
+        "7, Park Street, Kolkata, West Bengal, India",
+        "55, Juhu Beach, Mumbai, Maharashtra, India",
+        "25, Chandni Chowk, Delhi, India"
+    ];
+    phone = [
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+        "+917353394854",
+        "+917349353427",
+        "+919980200591",
+    ];
+
+    function getRandomInt(o) {
+        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    };
+
+    function tailors() {
+        let numarr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        let arr = getRandomInt(numarr)
+        for (var i = 0; i < 6; i++) {
+            var a =
+                `
+            <img src="{{ url_for('static', filename='assets/measuring-tape.png') }}" class="tailorimg" alt="Tailor">
+            <h1>${tailorname[arr[i]]}</h1>
+            <h3>${shopname[arr[i]]}</h3>
+            <h5>${address[arr[i]]}</h5>
+            <br>
+            <button class="contactbtn">Contact Now!</button>
+        `;
+            let card = document.createElement("div");
+            card.classList += "card";
+            card.innerHTML = a;
+            document.getElementById("cards").appendChild(card);
+        }
+        document.querySelector(".contactbtn").addEventListener('click', () => contacttailor());
+    }
+    function contacttailor() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/contacttailor", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log('Contacting...')
+            } else {
+                alert("Error Contacting!!");
+            }
+        };
+        data = '{{ data }}';
+        xhr.send(JSON.stringify({ imageurl: data }));
+    }
+    tailors();
+</script>

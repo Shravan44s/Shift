@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    color: white
+}
+
+body {
+    background-color: #1f1f1f;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.heading {
+    color: whitesmoke;
+    text-align: center;
+    padding: 12px;
+    font-size: 36px;
+}
+
+.container {
+    width: 94vw;
+    border: 3px solid whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    border-radius: 2vw;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+.genimage {
+    width: 25vw;
+    height: auto;
+    border-radius: 2vw;
+}
+
+.tailorimg {
+    width: 5vw;
+}
+
+.cards {
+    width: 75vw;
+    border: 3px solid #80d437;
+    border-radius: 2vw;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card {
+    width: 20vw;
+    border: 3px solid whitesmoke;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 2vw;
+}
+
+.contactbtn {
+    background: #80d437;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 2vw;
+}
+

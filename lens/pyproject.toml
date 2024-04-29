@@ -1,0 +1,27 @@
+[project]
+name = "google-image-source-search"
+version = "0.0.2"
+authors = [
+  { name="Vorrik", email="author@example.com" },
+]
+description = "A package to search image sources using google services"
+readme = "README.md"
+requires-python = ">=3.7"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests <= 2.31.0",
+    "jsonnet-binary <= 0.17.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Vorrik/Google-Image-Source-Search"
+"Bug Tracker" = "https://github.com/Vorrik/Google-Image-Source-Search/issues"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
